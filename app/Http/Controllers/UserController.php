@@ -11,7 +11,8 @@ class UserController extends Controller
     {
         return response([
             'user' => auth()->user(),
-            'profile' => auth()->user()->profile
+            'profile' => auth()->user()->profile,
+            'product' => auth()->user()->products
         ], 201);
     }
 }
