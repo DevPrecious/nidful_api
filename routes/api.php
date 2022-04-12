@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -25,6 +26,7 @@ Route::post('upload', [UploadController::class,'upload']);
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::get('user', [UserController::class, 'index'])->name('user.profile');
     Route::post('/profile/store', [ProfileController::class, 'store'])->name('store');
+    Route::post('/profile/follow/{user}', [FollowController::class, 'follow'])->name('follow');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/product/store',[ProductController::class, 'store'])->name('product.store');
 });
