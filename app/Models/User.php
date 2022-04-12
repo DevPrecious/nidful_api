@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public function follow()
     {
         return $this->hasMany(Follow::class);
