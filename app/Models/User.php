@@ -49,12 +49,6 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
-<<<<<<< HEAD
-    
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-=======
 
     public function follow()
     {
@@ -64,6 +58,5 @@ class User extends Authenticatable
     public function followers()
     {
          return $this->belongsTo(Follow::class);
->>>>>>> ca08bc31c176e59628fcd9641e8c086585115e1d
     }
 }
