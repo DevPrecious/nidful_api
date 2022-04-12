@@ -13,6 +13,8 @@ class UserController extends Controller
             'user' => auth()->user(),
             'profile' => auth()->user()->profile,
             'following' => auth()->user()->followers->count(),
+            'product' => auth()->user()->products,
+            'following' => auth()->user()->followers->count(),
         ], 201);
     }
 }
