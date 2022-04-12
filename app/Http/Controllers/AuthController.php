@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -20,7 +21,7 @@ class AuthController extends Controller
 
         $user = User::create([
             'name' => $request->name,
-            'username' => $request->username,
+            'username' => Str::slug($request->username),
             'phone_number' => $request->phone_number,
             'address' => $request->address,
             'email' => $request->email,
@@ -64,7 +65,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        auth('sanctum')->user()->tokens()->delete();
+        auth()->user()->tokens()->delete();
 
         return [
             'message' => 'Successfully logged out',

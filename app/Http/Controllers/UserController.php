@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(User $user)
+    public function index()
     {
         return response([
-            'user' => $user
+            'user' => auth()->user(),
+            'profile' => auth()->user()->profile
         ], 201);
     }
 }
